@@ -1,0 +1,267 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Poppins:wght@300;400&display=swap');
+
+body {
+    background-color: #1a1a2e;
+    background-image: linear-gradient(315deg, #1a1a2e 0%, #16213e 74%);
+    font-family: 'Poppins', sans-serif;
+    color: #e0e0e0;
+}
+
+header, footer {
+    background-color: rgba(0,0,0,0.2);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    color: #ffd700; /* Gold */
+}
+
+.card {
+    background-color: rgba(22, 33, 62, 0.8);
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+.form-control {
+    background-color: rgba(0,0,0,0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+.form-control::placeholder {
+    color: #a0a0a0;
+}
+
+.form-control:focus {
+    background-color: rgba(0,0,0,0.4);
+    border-color: #ffd700;
+    box-shadow: 0 0 0 0.25rem rgba(255, 215, 0, 0.25);
+    color: #fff;
+}
+
+.btn-primary {
+    background-color: #ffd700;
+    border-color: #ffd700;
+    color: #1a1a2e;
+    font-weight: bold;
+    padding: 12px 30px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #f0c400;
+    border-color: #f0c400;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2);
+}
+
+.btn-secondary {
+     background-color: transparent;
+    border-color: #ffd700;
+    color: #ffd700;
+}
+
+.btn-secondary:hover {
+    background-color: #ffd700;
+    border-color: #ffd700;
+    color: #1a1a2e;
+}
+
+#quiz-section .btn {
+    background-color: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,215,0,0.5);
+    color: #e0e0e0;
+    text-align: left;
+    padding: 15px;
+}
+
+#quiz-section .btn:hover {
+    background-color: rgba(255,215,0,0.2);
+    border-color: #ffd700;
+}
+
+.progress-bar {
+    background-color: #ffd700;
+}
+
+#symbol-canvas {
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 50%;
+    border: 2px dashed rgba(255, 215, 0, 0.5);
+}
+
+/* --- RITUAL SECTION --- */
+
+#ritual-section {
+    min-height: 500px;
+}
+
+#ritual-section h2, #ritual-section h3 {
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.7);
+}
+
+.breathing-circle {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: rgba(255, 215, 0, 0.2);
+    border: 3px solid #ffd700;
+    margin: 30px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease-out;
+}
+
+.breathing-circle.inhale { animation: pulse 4s infinite ease-in-out; }
+.breathing-circle.hold { animation: none; transform: scale(1.1); }
+.breathing-circle.exhale { animation: pulse-out 8s infinite ease-in-out; }
+
+@keyframes pulse {
+    0% { transform: scale(0.9); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(0.9); }
+}
+
+@keyframes pulse-out {
+    0% { transform: scale(1.1); }
+    100% { transform: scale(0.9); }
+}
+
+.breathing-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    color: #fff;
+    text-shadow: 0 0 5px #000;
+}
+
+.chakra-container {
+    position: relative;
+    max-width: 250px;
+    margin: 20px auto;
+}
+
+.chakra-img {
+    width: 100%;
+    height: auto;
+}
+
+.chakra-dot {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #ffd700;
+    opacity: 0;
+    transition: all 1s ease-in-out;
+    transform: translate(-50%, -50%);
+}
+.chakra-dot.active {
+    opacity: 1;
+    box-shadow: 0 0 15px 5px #ffd700, 0 0 25px 15px rgba(255, 215, 0, 0.5);
+}
+#chakra-root { top: 90%; left: 50%; }
+#chakra-sacral { top: 75%; left: 50%; }
+#chakra-solar { top: 60%; left: 50%; }
+
+.affirmation-container {
+    min-height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.affirmation-container.visible {
+    opacity: 1;
+}
+
+/* --- BELIEF REPROGRAMMER --- */
+.belief-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 10px;
+    max-height: 300px;
+    overflow-y: auto;
+    padding: 10px;
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 8px;
+}
+
+.belief-item {
+    padding: 12px;
+    border: 1px solid rgba(255, 215, 0, 0.4);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+    font-size: 0.9rem;
+}
+
+.belief-item:hover {
+    background-color: rgba(255, 215, 0, 0.1);
+    border-color: rgba(255, 215, 0, 0.8);
+}
+
+.belief-item.selected {
+    background-color: rgba(255, 215, 0, 0.25);
+    border-color: #ffd700;
+    color: #ffd700;
+    font-weight: bold;
+}
+
+.shake {
+    animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+@keyframes shake {
+  10%, 90% { transform: translate3d(-1px, 0, 0); }
+  20%, 80% { transform: translate3d(2px, 0, 0); }
+  30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+  40%, 60% { transform: translate3d(4px, 0, 0); }
+}
+
+#reprogrammer-container {
+    perspective: 1000px;
+}
+
+.reprogram-box {
+    background-color: rgba(0,0,0,0.3);
+    border-left: 5px solid #ff4d4d; /* Red for limiting */
+    padding: 20px;
+    margin: 15px auto;
+    max-width: 80%;
+    position: relative;
+    transition: border-color 1s ease-in-out;
+}
+
+.reprogram-box.active {
+    border-left-color: #ffd700; /* Gold for empowering */
+}
+
+.limiting-belief, .empowering-belief {
+    margin: 0;
+    transition: opacity 0.8s ease-in-out;
+}
+
+.limiting-belief.faded {
+    opacity: 0.2;
+}
+
+.empowering-belief {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    color: #ffd700;
+    font-weight: bold;
+    font-size: 1.1em;
+    opacity: 0;
+    animation: fadeIn 1s forwards 0.5s;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
